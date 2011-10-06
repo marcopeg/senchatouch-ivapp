@@ -1,0 +1,39 @@
+/**
+ * IVApp
+ */
+
+.x-ivapp {
+	font-size:0.85em;
+}
+.x-ivapp table th, .x-ivapp table td {
+	text-align:right;
+}
+.x-ivapp table em {
+	font-weight:normal;
+}
+
+.x-portrait .x-ivapp table em {
+	display:none;
+}
+.x-landscape .x-ivapp table em {
+	display:inline-block;
+	margin-left:3px;
+}
+.iva-old { display:none }
+.x-ivapp-info {
+	display:block;
+	text-shadow: 0 1px 0 #fff;
+	font-size:1.8em;
+	text-align:center;
+}
+
+
+.x-form-label {
+	text-align:right;
+}
+
+input.x-ivapp-input {
+	font-size:1.5em;
+	min-height: 1em;
+	color:#666;
+}
