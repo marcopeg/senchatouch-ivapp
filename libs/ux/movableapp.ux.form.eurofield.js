@@ -10,9 +10,9 @@
  * I think this code may be updated.
  */
 
-Ext.ns('Ext.ux.form');
+Ext.ns('MovableApp.ux.form');
 
-Ext.ux.form.EuroField = Ext.extend(Ext.form.Text,{
+MovableApp.ux.form.EuroField = Ext.extend(Ext.form.Text,{
 	
 	// Internal store for digits in control.
 	digits: "0",
@@ -48,7 +48,7 @@ Ext.ux.form.EuroField = Ext.extend(Ext.form.Text,{
 		this.value = Ext.util.Numbers.toFixed(this.value/100,2);
 		
 		
-		Ext.ux.form.EuroField.superclass.onRender.apply(this, arguments);
+		MovableApp.ux.form.EuroField.superclass.onRender.apply(this, arguments);
 		
 		
 		// Cleared behavior
@@ -80,7 +80,7 @@ Ext.ux.form.EuroField = Ext.extend(Ext.form.Text,{
     // Get a float value with 2 decimals
     getValue: function() {
 		
-		var val = Ext.ux.form.EuroField.superclass.getValue.apply(this);
+		var val = MovableApp.ux.form.EuroField.superclass.getValue.apply(this);
     	
     	val = parseFloat(val);
     	
@@ -145,4 +145,4 @@ Ext.ux.form.EuroField = Ext.extend(Ext.form.Text,{
 	
 });
 
-Ext.reg('eurofield', Ext.ux.form.EuroField );
+Ext.reg('eurofield', MovableApp.ux.form.EuroField );

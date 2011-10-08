@@ -1,8 +1,15 @@
+/**
+ * InstallToHome [plugin]
+ * by MovableApp.com
+ *
+ */
+
 Ext.ns('MovableApp.plugins');
 		
 		
 MovableApp.plugins.AddToHome = Ext.extend(Object,{
 	
+	debug:					false,
 	installPanel:			null,
 	
 	delay:					100,
@@ -65,10 +72,10 @@ MovableApp.plugins.AddToHome = Ext.extend(Object,{
 	 */
 	init: function(parent) {
 		
-		console.log('Plugin !init');
+		//console.log('Plugin !init');
 		
 		// This plugin only works on iPhone or iPad in browser mode!
-		if ( !Ext.is.iOS || Ext.is.Standalone ) return;
+		if ( !this.debug && ( !Ext.is.iOS || Ext.is.Standalone ) ) return;
 		
 		parent.on({
 			afterrender:		this.evtParentAfterRender,
@@ -84,7 +91,7 @@ MovableApp.plugins.AddToHome = Ext.extend(Object,{
 	 */
 	evtParentAfterRender: function(ui) {
 		
-		console.log('Plugin/Parent !afterrender');
+		//console.log('Plugin/Parent !afterrender');
 		
 		
 		this.installPanel = new Ext.Panel({
