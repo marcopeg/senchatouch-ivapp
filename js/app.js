@@ -308,7 +308,27 @@ Ext.setup({
 			// UI Actions
 			listeners: {
 				
+				// This event intercept desktop usage and wrap the UI in a
+				// modal window whith iPhone dimensions
+				beforerender: function() {
+					
+					if ( !Ext.is.Phone ) {
+						Ext.apply(this,{
+							fullscreen: false,
+							floating:true,
+							width:320,
+							height:460,
+							centered: true,
+							modal:true,
+							hideOnMaskTap:false
+						});
+					}
+					
+				},
+				
 				render: function() {
+					
+					
 					
 					// Display Info Card
 					Ext.getCmp('btnInfo').setHandler(function(){

@@ -19,27 +19,6 @@ MovableApp.ux.form.EuroField = Ext.extend(Ext.form.Text,{
 	
 	useClearIcon:true,
 	
-	renderTpl: [
-		'<tpl if="label"><div class="x-form-label"><span>{label}</span></div></tpl>',
-		'<tpl if="fieldEl"><div class="x-form-field-container">',
-			'<input id="{inputId}" type="{inputType}" name="{name}" pattern="[0-9]*" class="{fieldCls}"',
-				'<tpl if="tabIndex">tabIndex="{tabIndex}" </tpl>',
-				'<tpl if="placeHolder">placeholder="{placeHolder}" </tpl>',
-				'style="text-align:right;{style}" ',
-				'<tpl if="minValue != undefined">min="{minValue}" </tpl>',
-				'<tpl if="maxValue != undefined">max="{maxValue}" </tpl>',
-				'<tpl if="stepValue != undefined">step="{stepValue}" </tpl>',
-				'<tpl if="autoComplete">autocomplete="{autoComplete}" </tpl>',
-				'<tpl if="autoCapitalize">autocapitalize="{autoCapitalize}" </tpl>',
-				'<tpl if="autoFocus">autofocus="{autoFocus}" </tpl>',
-			'/>',
-			'<tpl if="useMask"><div class="x-field-mask"></div></tpl>',
-			'</div></tpl>',
-		'<tpl if="useClearIcon"><div class="x-field-clear-container"><div class="x-field-clear x-hidden-visibility">&#215;</div><div></tpl>'
-	],
-	
-	
-	
 	onRender: function() {
 		
 		// Setup the correct float value for initialized field.
@@ -47,9 +26,12 @@ MovableApp.ux.form.EuroField = Ext.extend(Ext.form.Text,{
 		this.digits = ""+this.value;
 		this.value = Ext.util.Numbers.toFixed(this.value/100,2);
 		
-		
 		MovableApp.ux.form.EuroField.superclass.onRender.apply(this, arguments);
 		
+		// Setup pattern & text-alignment
+		var input = Ext.get(this.getEl().query('input')[0]);
+		input.dom.pattern = '[0-9]*';
+		input.applyStyles('text-align:right');
 		
 		// Cleared behavior
 		this.getEl().on({
